@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Car Selection{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <form action="{{ path('app_home') }}" method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="name" class="form-control" placeholder="Search by name">
+                <input type="number" name="nbSeats" class="form-control" placeholder="Search by number of seats">
+                <input type="number" name="nbDoors" class="form-control" placeholder="Search by number of doors">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+
+        {% for car in cars %}
+            <div class="col-sm-4">
+                <div class="card mb-3">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="{{ car.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.name }}</h5>
+                        <p class="card-text">
+                            <strong>Seats:</strong> {{ car.nbSeats }}<br>
+                            <strong>Doors:</strong> {{ car.nbDoors }}<br>
+                            <strong>Cost:</strong> ${{ car.cost }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                No cars found.
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
