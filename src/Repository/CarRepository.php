@@ -42,28 +42,36 @@ class CarRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('c');
 
+
         
         if (isset($search['name'])) {
             $qb->andWhere('c.name LIKE :name')
                 ->setParameter('name', '%' . $search['name'] . '%');
         }
         
-        if (isset($search['nbSeats'])) {
+        if (!empty($search['nbSeats'])) {
             $qb->andWhere('c.nbSeats = :nbSeats')
                 ->setParameter('nbSeats', $search['nbSeats']);
         }
         
-        if (isset($search['nbDoors'])) {
+        if (!empty($search['nbDoors'])) {
             $qb->andWhere('c.nbDoors = :nbDoors')
                 ->setParameter('nbDoors', $search['nbDoors']);
         }
-        $query = $qb->getQuery();
-
-        $result = $query->getResult();
         
+
+        if (isset($search['category']) && $search['category'] != '') {
+            $qb->andWhere('c.category = :category')
+                ->setParameter('category', $search['category']);
+        }
+        
+        
+        $query = $qb->getQuery();
+        $result = $query->getResult();
         if(!$result) {
             return [];
         }
+        
         return $result;
     }
 //    /**
