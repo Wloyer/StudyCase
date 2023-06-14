@@ -1,0 +1,19 @@
+Create a car dealership Symfony application
+
+
+A car dealer created his business recently,  but to increase his visibility, he asked you to create an application to display the cars he sells. PHP version must be 7 or 8, Symfony version 5 or 6.
+
+He wants the application as simple as possible to reduce the cost of it, and wants a page where he can search the cars by name in an input field, and also have the possibility to filter the cars by category. If there are more than 20 cars listed in the database, he wants to be able to use a pagination to avoid having all the results in a single page (using https://github.com/KnpLabs/KnpPaginatorBundle).  
+
+The images for the cars are not required. Using Bootstrap for the interface is mandatory.
+
+An administration page is also required to update, create, read and delete cars. For the exercice, the registration is not required.
+
+A requirement is that the application must be filled with data using fixtures (fake data to populate the database), you can find resources on these links, or any other link you can find : https://symfonycasts.com/screencast/symfony-doctrine/fixtures and https://fakerphp.github.io/
+Hint : Use the first link to create the entities, and the second to populate the fake data.
+
+Here is what the CDM (CMD in French) looks like. You can add as many fields as you find useful, but this is not mandatory.
+
+
+Our customer wants the weather to be displayed on the main page, using a public API that he found on one of his competitors’ website : https://open-meteo.com/en/docs#api_form 
+Every hour, the temperature must change on the page. 
