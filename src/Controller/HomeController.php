@@ -10,35 +10,33 @@ use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Flibidi67\OpenMeteo\Service\ForecastService;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(CarRepository $carRepository, CarCategoryRepository $carCategoryRepository, Request $request, PaginatorInterface $paginator): Response
+    public function index(CarRepository $carRepository, CarCategoryRepository $carCategoryRepository, Request $request, PaginatorInterface $paginator, ForecastService $forecastService): Response
     {
         $search = $request->query->all();
         $cars = $carRepository->findBySearch($search);
         $cars = $paginator->paginate(
-            $cars,
-            $request->query->getInt('page', 1), /* page number */
+        $cars,
+        $request->query->getInt('page', 1), /* page number */
             20 /* limit per page */
         );
         $categories = $carCategoryRepository->findAll();
 
-        // Define the URL
-        $url = "https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&hourly=temperature_2m";
-
-        // Use Guzzle to send a GET request
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', $url);
-        $weather_data = json_decode($res->getBody(), true);
+        // Utilisation du service ForecastService pour obtenir les données météorologiques
+        $forecastService->setCoordinates(48.85, 2.35)  // Coordonnées pour Paris
+                       ->getHourly()
+                       ->with("temperature_2m,weathercode");
+        $weatherData = $forecastService->get();
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'cars' => $cars,
             'categories' => $categories,
-            'weather_data' => $weather_data
+            'weather_data' => $weatherData
         ]);
     }
 

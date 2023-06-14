@@ -1,0 +1,91 @@
+flibidi67_open_meteo:
+  default:
+    temperature_unit: "celcius" # or fahrenheit
+    wind_speed_unit: "kmh" # or ms, mph, kn
+    precipitation_unit: "mm" # or inch
+    timeformat: "iso8601" #or unixtime
+    timezone: "GMT" # auto, GMT or another existing timezone (eg: Europe/Paris).
+    past_days: 0 # between 0 and 92
+    forecast_days: 7 # between 0 and 16
+    current_weather: false # true or false
+
+  forecast:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    forecast_days: ~
+    current_weather: ~
+
+  historical:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+
+  ecmwf:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    past_days: ~
+
+  gfs:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    forecast_days: ~
+    current_weather: ~
+
+  meteofrance:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    current_weather: ~
+
+  dwd:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    current_weather: ~
+
+  jma:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    current_weather: ~
+
+  metno:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    current_weather: ~
+
+  gem:
+    temperature_unit: ~
+    wind_speed_unit: ~
+    precipitation_unit: ~
+    timeformat: ~
+    timezone: ~
+    past_days: ~
+    current_weather: ~
+
+

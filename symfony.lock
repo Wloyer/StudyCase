@@ -38,6 +38,9 @@
             "./migrations/.gitignore"
         ]
     },
+    "flibidi67/open-meteo": {
+        "version": "1.0.0"
+    },
     "knplabs/knp-paginator-bundle": {
         "version": "v6.2.0"
     },

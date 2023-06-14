@@ -18,7 +18,8 @@
                             {% endfor %}
                         </select>
                     </div>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary btnCustom">Search</button>
+                <button type="submit" class="btn btn-warning btnCustom"><a href="{{ path('app_car_index') }}">Edit</a></button>
             </div>
         </form>
         {% for car in cars %}
@@ -31,6 +32,7 @@
                             <p class="card-text">Seats: {{ car.nbSeats }}</p>
                             <p class="card-text">Cost: {{ car.cost }}</p>
                             <p class="card-text">Category: {{ car.category.getName() }}</p>
+                            <button class="btn btn-primary">Buy</button>
                     </div>
                 </div>
             </div>
@@ -44,17 +46,6 @@
         </div>
     </div>
 </div>
-{% if 'current_weather' in weather_data %}
-    <div class="weather-info">
-        <p>Weather: {{ weather_data.current_weather.weathercode }}</p>
-        <p>Temperature: {{ weather_data.current_weather.temperature }} °C</p>
-    </div>
-{% else %}
-    <div class="weather-info">
-        <p>No current weather data available.</p>
-    </div>
-{% endif %}
-
 
 
 {% endblock %}
